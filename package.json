@@ -14,9 +14,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "i18next": "^24.2.2",
     "meduza-bus": "^1.0.5",
     "pinia": "^2.2.6",
     "vue": "^3.5.13",
+    "vue-i18n": "^11.1.0",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
