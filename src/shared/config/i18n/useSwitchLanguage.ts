@@ -1,7 +1,7 @@
 import allHooks from './hooks'
 
 const useSwitchLanguage = () => {
-  const switchAllLanguages = (languageCode) => {
+  const switchAllLanguages = (languageCode:string) => {
     allHooks.forEach((hook) => {
       if (!hook) return
       hook()(languageCode)

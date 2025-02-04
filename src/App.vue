@@ -1,7 +1,18 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
-
+import eventBus from 'meduza-bus'
+import { defineAsyncComponent, onBeforeUnmount, onMounted } from 'vue'
+import useSwitchLanguage from './shared/config/i18n/useSwitchLanguage'
 const Header = defineAsyncComponent(() => import('meduza-pet-header/App'))
+
+onMounted(() => {
+  const { switchAllLanguages } = useSwitchLanguage()
+  eventBus.on('localeChanged', (config) => {
+    switchAllLanguages(config.locale)
+  })
+})
+onBeforeUnmount(() => {
+  eventBus.off('localeChanged')
+})
 </script>
 <template>
   <Header />

@@ -12,5 +12,5 @@ const i18n = createI18n({
   fallbackLocale: 'en',
   messages,
 });
-
+export type TMessages = keyof typeof messages;
 export default i18n;
