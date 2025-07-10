@@ -4,13 +4,18 @@ import I18nService from '../I18nService'
 describe('I18nService', () => {
   let originalI18n: any
   let mockI18n: any
+  let messagesStore: Record<string, object> = {}
 
   beforeEach(() => {
     originalI18n = window.i18n
+    messagesStore = {}
     mockI18n = {
       global: {
         locale: { value: 'en' },
-        setLocaleMessage: vi.fn()
+        setLocaleMessage: (locale: string, messages: object) => {
+          messagesStore[locale] = messages
+        },
+        getLocaleMessage: (locale: string) => messagesStore[locale] || {}
       }
     }
     window.i18n = mockI18n
@@ -31,9 +36,9 @@ describe('I18nService', () => {
 
   it('should add locale messages', () => {
     const messages = { hello: 'cringe' }
-    const localeMessages = {cringe: messages}
-    I18nService.addLocale('ru',localeMessages)
-    expect(mockI18n.global.setLocaleMessage).toHaveBeenCalledWith('ru', localeMessages)
+    const localeMessages = { cringe: messages }
+    I18nService.addLocale('en', localeMessages)
+    expect(messagesStore['en']).toEqual(localeMessages)
   })
 
   it('should report i18n availability', () => {
