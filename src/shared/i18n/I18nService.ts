@@ -24,7 +24,9 @@ class I18nService {
 
   addLocale(locale: string, messages: Record<string, object>) {
     if (this.i18n) {
-      this.i18n.global.setLocaleMessage(locale, messages);
+      const oldMessages = this.i18n.global.getLocaleMessage(locale) || {};
+      const merged = { ...oldMessages, ...messages };
+      this.i18n.global.setLocaleMessage(locale, merged);
       return;
     }
     console.warn('I18n instance is not available, cannot add locale');
