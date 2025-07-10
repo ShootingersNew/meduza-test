@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
-
-const Header = defineAsyncComponent(() => import('meduza-pet-header/App'))
-const Footer = defineAsyncComponent(() => import('meduza-pet-footer/App'))
+import AppHeader from '@/widgets/AppHeader.vue'
+import AppFooter from '@/widgets/AppFooter.vue'
 </script>
 <template>
-  <Header />
+  <AppHeader />
   <div>
     <RouterView />
   </div>
-  <Footer />
+  <AppFooter />
 </template>
 
 <style scoped>
