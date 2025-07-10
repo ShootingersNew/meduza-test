@@ -2,9 +2,9 @@ name: Lint and Test
 
 on:
   pull_request:
-    branches: [ main, master, develop ]
+    branches: [master, develop]
   push:
-    branches: [ main, master, develop ]
+    branches: [master, develop]
 
 jobs:
   lint:
