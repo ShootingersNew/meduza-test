@@ -29,6 +29,11 @@ class I18nService {
     }
     console.warn('I18n instance is not available, cannot add locale');
   }
+  addLocales(locales: Record<string, Record<string, object>>) {
+  for (const [locale, messages] of Object.entries(locales)) {
+    this.addLocale(locale, messages);
+  }
+}
 
   hasI18n() {
     return !!this.i18n;
