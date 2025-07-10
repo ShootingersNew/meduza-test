@@ -16,7 +16,7 @@ class NavigationService {
 
   navigate(location: RouteLocationRaw) {
     const r = this.activeRouter;
-    console.log('NavigationService.navigate', location, 'router:',r);
+    
     if (r) {
       r.push(location)
     } else {
