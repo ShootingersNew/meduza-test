@@ -2,12 +2,14 @@
 import { defineAsyncComponent } from 'vue'
 
 const Header = defineAsyncComponent(() => import('meduza-pet-header/App'))
+const Footer = defineAsyncComponent(() => import('meduza-pet-footer/App'))
 </script>
 <template>
   <Header />
   <div>
     <RouterView />
   </div>
+  <Footer />
 </template>
 
 <style scoped>
