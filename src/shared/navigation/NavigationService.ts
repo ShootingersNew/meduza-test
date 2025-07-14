@@ -1,5 +1,5 @@
-import type { RouteLocationRaw, Router } from "vue-router"
-import router from "@/router"
+import type { RouteLocationRaw, Router } from 'vue-router'
+import router from '@/router'
 // this service provides a simple interface for navigation
 // it checks if the router is available and uses it, otherwise falls back to window.location
 class NavigationService {
@@ -15,8 +15,8 @@ class NavigationService {
   }
 
   navigate(location: RouteLocationRaw) {
-    const r = this.activeRouter;
-    
+    const r = this.activeRouter
+
     if (r) {
       r.push(location)
     } else {
