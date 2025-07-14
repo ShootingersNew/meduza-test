@@ -15,8 +15,8 @@ describe('I18nService', () => {
         setLocaleMessage: (locale: string, messages: object) => {
           messagesStore[locale] = messages
         },
-        getLocaleMessage: (locale: string) => messagesStore[locale] || {}
-      }
+        getLocaleMessage: (locale: string) => messagesStore[locale] || {},
+      },
     }
     window.i18n = mockI18n
   })
