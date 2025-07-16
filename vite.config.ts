@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
     ],
     build: {
       target: 'esnext',
+      assetsDir: 'host-assets',
     },
     resolve: {
       alias: {
